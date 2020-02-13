@@ -23,15 +23,18 @@ public class UF2ACT2 {
 
 			stmt = connection.createStatement();
 
+			// Comencem la transaccio
 			try {
 				connection.setAutoCommit(false);
-				stmt.execute("INSERT INTO alumnes VALUES ('NomProba','24322522X','2002-2-2','CarrerExemple',2123,'PoblacioExemple')");
+				stmt.execute("DELETE FROM alumnes WHERE dni = '24322522X';");
 				Thread.sleep(2000);
-				stmt.execute("DELETE FROM alumnes WHERE dni = 24322522X;");
+				stmt.execute("INSERT INTO alumnes VALUES ('NomProba','24322522X','2002-2-2','CarrerExemple',2123,'PoblacioExemple')");
 				connection.commit();
 				connection.setAutoCommit(true);
+				// Si ha anat be retornem misatge
 				return("Transaccio executada amb exit");
 			} catch (SQLException s) {
+				// Si ha fallat fem un rollback i retornem la excepcio
 				connection.rollback();
 				return(s.getMessage());
 			}

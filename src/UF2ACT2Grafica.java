@@ -24,6 +24,7 @@ public class UF2ACT2Grafica extends JFrame {
 
 	private JPanel contentPane;
 
+	// Executem
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -36,9 +37,9 @@ public class UF2ACT2Grafica extends JFrame {
 			}
 		});
 	}
-	
 	public UF2ACT2Grafica() {
 		
+		// Fiquem les variables correctament
 		this.setResizable(false);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
